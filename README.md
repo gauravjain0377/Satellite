@@ -4,19 +4,6 @@ A comprehensive Google Earth Engine project visualizing 25 years of Amazon rainf
 
 ![Timelapse Preview](deforestation.gif)
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Quick Start](#quick-start)
-- [Project Structure](#project-structure)
-- [Methodology](#methodology)
-- [Visualization Guide](#visualization-guide)
-- [Export Instructions](#export-instructions)
-- [Technical Details](#technical-details)
-- [Results & Analysis](#results--analysis)
-- [Requirements](#requirements)
-
 ## 🌳 Overview
 
 This project uses Google Earth Engine to process Landsat satellite imagery from 2000-2025, creating annual cloud-masked composites that reveal deforestation patterns in the Amazon rainforest. The visualization uses false-color RGB mapping where healthy vegetation appears bright red, while deforested areas appear gray/brown.
