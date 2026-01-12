@@ -1,14 +1,197 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Amazon Deforestation Viewer</title>
-  <style>body{font-family:sans-serif;max-width:800px;margin:50px auto;}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Deforestation Timelapse | Google Earth Engine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #e0e0e0;
+      overflow-x: hidden;
+      background: #0a0e1a;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 40px 20px 30px;
+      background: linear-gradient(180deg, #0a0e1a 0%, rgba(10, 14, 26, 0.8) 100%);
+    }
+
+    .header h1 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .header p {
+      font-size: 1rem;
+      color: #8a9ba8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* GIF Section - Top Priority */
+    .gif-section {
+      padding: 30px 20px 60px;
+      text-align: center;
+    }
+
+    .timelapse-gif {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Info Section */
+    .info-section {
+      padding: 60px 20px;
+      background: rgba(20, 28, 40, 0.4);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(78, 205, 196, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .info-card h3 {
+      font-size: 1.2rem;
+      color: #4ecdc4;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .info-card p {
+      color: #b0bcc5;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .tech-badge {
+      display: inline-block;
+      background: rgba(78, 205, 196, 0.15);
+      color: #4ecdc4;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 5px 5px 5px 0;
+      border: 1px solid rgba(78, 205, 196, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #6a7a8a;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header { padding: 30px 20px 20px; }
+      .gif-section { padding: 20px 15px 40px; }
+      .info-section { padding: 40px 15px; }
+      .info-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+
+    /* Smooth fade in */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.8s ease-out;
+    }
+  </style>
 </head>
 <body>
-  <h1>🌳 Amazon Deforestation Timelapse</h1>
-  <img src="amazon-deforestation.gif" alt="Timelapse" style="width:100%;border-radius:8px;">
-  <p><strong>Paste GEE script:</strong> <a href="gee-script.js">gee-script.js</a></p>
-  <img src="deforestation.gif" alt="2025 image" style="width:100%;">
-  <footer>Made with Google Earth Engine</footer>
+  <!-- Header -->
+  <header class="header fade-in">
+    <div class="container">
+      <h1>Amazon Deforestation Timelapse</h1>
+      <p>2000–2025 | False-color visualization using Google Earth Engine</p>
+    </div>
+  </header>
+
+  <!-- GIF Section - Top Priority -->
+  <section class="gif-section fade-in">
+    <div class="container">
+      <img src="deforestation.gif" alt="Amazon Deforestation Timelapse 2000-2025" class="timelapse-gif">
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="info-section">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Visualization Method</h3>
+          <p>False-color composite using NIR, Red, and Green bands. Healthy forest appears bright red due to strong NIR reflectance. Deforested areas appear gray/brown as vegetation is removed.</p>
+        </div>
+        <div class="info-card">
+          <h3>Data Source</h3>
+          <p>Landsat 5 (2000-2011), Landsat 7 (2012), and Landsat 8 (2013-2025) satellite imagery. Annual cloud-masked median composites processed through Google Earth Engine.</p>
+        </div>
+        <div class="info-card">
+          <h3>Technical Details</h3>
+          <p>
+            <span class="tech-badge">Google Earth Engine</span>
+            <span class="tech-badge">Landsat Collection 2</span>
+            <span class="tech-badge">Cloud Masking</span>
+            <span class="tech-badge">Annual Composites</span>
+            <span class="tech-badge">False-Color RGB</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p><strong>Built with Google Earth Engine</strong></p>
+      <p>Landsat data courtesy USGS/NASA | For educational and research purposes</p>
+    </div>
+  </footer>
 </body>
 </html>
