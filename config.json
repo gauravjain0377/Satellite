@@ -1,0 +1,85 @@
+{
+  "project": {
+    "name": "Amazon Deforestation Timelapse",
+    "version": "1.0.0",
+    "description": "25-year timelapse visualization of Amazon rainforest deforestation using Google Earth Engine",
+    "author": "Your Name",
+    "year": "2025"
+  },
+  "region": {
+    "name": "Amazon Rainforest Basin",
+    "bounds": {
+      "west": -74.0,
+      "south": -15.0,
+      "east": -44.0,
+      "north": 5.0
+    },
+    "center": {
+      "longitude": -59.0,
+      "latitude": -5.0,
+      "zoom": 6
+    }
+  },
+  "temporal": {
+    "startYear": 2000,
+    "endYear": 2025,
+    "landsat5": {
+      "startYear": 2000,
+      "endYear": 2011
+    },
+    "landsat7": {
+      "startYear": 2012,
+      "endYear": 2012
+    },
+    "landsat8": {
+      "startYear": 2013,
+      "endYear": 2025
+    }
+  },
+  "export": {
+    "dimensions": 1920,
+    "framesPerSecond": 2,
+    "maxPixels": 10000000000000,
+    "folder": "EarthEngine",
+    "fileNamePrefix": "amazon_deforestation_timelapse"
+  },
+  "visualization": {
+    "bands": ["NIR", "Red", "Green"],
+    "min": [0.0, 0.0, 0.0],
+    "max": [0.4, 0.3, 0.3],
+    "gamma": [1.2, 1.2, 1.2]
+  },
+  "landsat": {
+    "collection2": {
+      "landsat5": "LANDSAT/LT05/C02/T1_L2",
+      "landsat7": "LANDSAT/LE07/C02/T1_L2",
+      "landsat8": "LANDSAT/LC08/C02/T1_L2"
+    },
+    "bands": {
+      "landsat5": {
+        "nir": "SR_B4",
+        "red": "SR_B3",
+        "green": "SR_B2"
+      },
+      "landsat7": {
+        "nir": "SR_B4",
+        "red": "SR_B3",
+        "green": "SR_B2"
+      },
+      "landsat8": {
+        "nir": "SR_B5",
+        "red": "SR_B4",
+        "green": "SR_B3"
+      }
+    },
+    "scaling": {
+      "multiply": 0.0000275,
+      "add": -0.2
+    }
+  },
+  "cloudMasking": {
+    "qaBand": "QA_PIXEL",
+    "cloudBit": 3,
+    "shadowBit": 4
+  }
+}

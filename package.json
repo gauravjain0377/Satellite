@@ -1,0 +1,35 @@
+{
+  "name": "amazon-deforestation-timelapse",
+  "version": "1.0.0",
+  "description": "25-year timelapse visualization of Amazon rainforest deforestation using Google Earth Engine",
+  "main": "amazon_deforestation_timelapse.js",
+  "scripts": {
+    "validate": "node scripts/validate-config.js",
+    "format": "prettier --write \"**/*.{js,json,md}\"",
+    "lint": "eslint *.js"
+  },
+  "keywords": [
+    "google-earth-engine",
+    "deforestation",
+    "amazon",
+    "remote-sensing",
+    "landsat",
+    "timelapse",
+    "satellite-imagery",
+    "environmental-monitoring"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/amazon-deforestation-timelapse.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^2.8.0"
+  },
+  "dependencies": {}
+}

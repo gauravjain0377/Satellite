@@ -1,0 +1,42 @@
+{
+  "falseColor": {
+    "name": "False-Color (NIR-Red-Green)",
+    "description": "Standard false-color for vegetation analysis. Healthy forest appears bright red.",
+    "bands": ["NIR", "Red", "Green"],
+    "min": [0.0, 0.0, 0.0],
+    "max": [0.4, 0.3, 0.3],
+    "gamma": [1.2, 1.2, 1.2]
+  },
+  "falseColorBright": {
+    "name": "False-Color (Bright)",
+    "description": "Brighter version for better visibility in dark areas",
+    "bands": ["NIR", "Red", "Green"],
+    "min": [0.0, 0.0, 0.0],
+    "max": [0.5, 0.4, 0.4],
+    "gamma": [1.0, 1.0, 1.0]
+  },
+  "falseColorContrast": {
+    "name": "False-Color (High Contrast)",
+    "description": "High contrast for deforestation detection",
+    "bands": ["NIR", "Red", "Green"],
+    "min": [0.0, 0.0, 0.0],
+    "max": [0.3, 0.25, 0.25],
+    "gamma": [1.5, 1.5, 1.5]
+  },
+  "naturalColor": {
+    "name": "Natural Color",
+    "description": "True-color visualization (Red-Green-Blue)",
+    "bands": ["Red", "Green", "Blue"],
+    "min": [0.0, 0.0, 0.0],
+    "max": [0.3, 0.3, 0.3],
+    "gamma": [1.2, 1.2, 1.2]
+  },
+  "ndvi": {
+    "name": "NDVI Visualization",
+    "description": "Normalized Difference Vegetation Index",
+    "formula": "(NIR - Red) / (NIR + Red)",
+    "min": -1.0,
+    "max": 1.0,
+    "palette": ["blue", "white", "green"]
+  }
+}
