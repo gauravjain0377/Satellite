@@ -1,0 +1,37 @@
+{
+  "amazonBasin": {
+    "name": "Full Amazon Basin",
+    "bounds": [-74.0, -15.0, -44.0, 5.0],
+    "description": "Complete Amazon rainforest region"
+  },
+  "brazilAmazon": {
+    "name": "Brazilian Amazon",
+    "bounds": [-74.0, -15.0, -50.0, 5.0],
+    "description": "Brazil portion of Amazon"
+  },
+  "rondonia": {
+    "name": "Rondônia State",
+    "bounds": [-66.0, -13.0, -60.0, -8.0],
+    "description": "Rondônia state, Brazil - major deforestation hotspot"
+  },
+  "para": {
+    "name": "Pará State",
+    "bounds": [-58.0, -8.0, -46.0, 2.0],
+    "description": "Pará state, Brazil - rapid deforestation area"
+  },
+  "peruBorder": {
+    "name": "Peru Border Region",
+    "bounds": [-74.0, -12.0, -70.0, -5.0],
+    "description": "Peru-Brazil border region"
+  },
+  "westernAmazon": {
+    "name": "Western Amazon",
+    "bounds": [-74.0, -10.0, -70.0, 0.0],
+    "description": "Western Amazon, generally more intact"
+  },
+  "centralAmazon": {
+    "name": "Central Amazon",
+    "bounds": [-65.0, -8.0, -55.0, 2.0],
+    "description": "Central Amazon region"
+  }
+}
